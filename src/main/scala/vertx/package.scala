@@ -20,6 +20,7 @@ package object vertx {
       Ping(buffer.getString(pos, buffer.length()))
     }
 
+
     override def transform(s: Ping): Ping = s
 
     override def name(): String = "PingCodec"
