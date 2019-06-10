@@ -32,9 +32,11 @@ object Server {
     tcp.addMember("127.0.0.1:2552")
 
     val options = new VertxOptions().setClusterManager(mgr)
-
+    
    // options.setClusterHost("localhost")
    // options.setClusterPort(3000)
+
+
 
     Vertx.clusteredVertx(options, res => {
 
@@ -44,6 +46,8 @@ object Server {
           .setInstances(1).setHa(true),
           new Handler[AsyncResult[String]] {
             override def handle(event: AsyncResult[String]): Unit = {
+
+              println(s"result: ${event.result()}")
 
               val cm = options.getClusterManager()
 

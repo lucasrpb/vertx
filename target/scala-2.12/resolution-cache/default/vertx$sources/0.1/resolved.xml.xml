@@ -4,7 +4,7 @@
 		module="vertx$sources"
 		revision="0.1"
 		status="integration"
-		publication="20190610141019"
+		publication="20190610191456"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
