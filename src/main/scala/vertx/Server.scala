@@ -1,5 +1,6 @@
 package vertx
 
+import java.util
 import java.util.function.Consumer
 
 import com.hazelcast.config.Config
@@ -9,6 +10,8 @@ import io.vertx.spi.cluster.hazelcast.HazelcastClusterManager
 object Server {
 
   def main(args: Array[String]): Unit = {
+
+    val port = args(0)
 
     val cfg = new Config()
     val mgr = new HazelcastClusterManager(cfg)
@@ -20,10 +23,13 @@ object Server {
 
     val tcp = join.getTcpIpConfig
 
+    join.getMulticastConfig.setEnabled(false)
     tcp.setEnabled(true)
-    tcp.setEnabled(false)
 
-    netcfg.setPort(3000)
+    netcfg.setPort(port.toInt)
+
+    tcp.addMember("127.0.0.1:2551")
+    tcp.addMember("127.0.0.1:2552")
 
     val options = new VertxOptions().setClusterManager(mgr)
 
@@ -34,7 +40,8 @@ object Server {
 
       if(res.succeeded()){
 
-        res.result.deployVerticle("vertx.ServerVerticle", new DeploymentOptions().setInstances(1),
+        res.result.deployVerticle("vertx.ServerVerticle", new DeploymentOptions()
+          .setInstances(1).setHa(true),
           new Handler[AsyncResult[String]] {
             override def handle(event: AsyncResult[String]): Unit = {
 

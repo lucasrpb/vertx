@@ -18,8 +18,11 @@ object Client {
 
     val tcp = join.getTcpIpConfig
 
+    join.getMulticastConfig.setEnabled(false)
     tcp.setEnabled(true)
-    tcp.setEnabled(false)
+
+    tcp.addMember("127.0.0.1:2551")
+    tcp.addMember("127.0.0.1:2552")
 
     netcfg.setPort(3001)
 
@@ -27,9 +30,6 @@ object Client {
     //join.getTcpIpConfig.addMember("127.0.0.1").setEnabled(true)
 
     val options = new VertxOptions().setClusterManager(mgr)
-
-   // options.setClusterHost("localhost")
-   // options.setClusterPort(3001)
 
     Vertx.clusteredVertx(options, res => {
 

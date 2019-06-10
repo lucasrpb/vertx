@@ -18,6 +18,7 @@ class ClientVerticle extends AbstractVerticle {
       val elapsed = System.currentTimeMillis() - start
       println(s"server replied ${event.result().body()} elapsed: ${elapsed}ms")
 
+      this.vertx.close()
     })
 
 
