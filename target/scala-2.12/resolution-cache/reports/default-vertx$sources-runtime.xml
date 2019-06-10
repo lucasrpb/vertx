@@ -7,7 +7,7 @@
 		revision="0.1"
 		conf="runtime"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20190610110341"/>
+		date="20190610132134"/>
 	<dependencies>
 		<module organisation="io.vertx" name="vertx-lang-scala_2.12">
 			<revision name="3.5.0" status="release" pubdate="20171017114926" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="54">
@@ -16,7 +16,7 @@
 				<metadata-artifact status="no" details="" size="24945" time="0" location="D:\Users\resta\.ivy2\cache\io.vertx\vertx-lang-scala_2.12\ivy-3.5.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/vertx/vertx-lang-scala_2.12/3.5.0/vertx-lang-scala_2.12-3.5.0.pom"/>
 				<caller organisation="default" name="vertx$sources" conf="compile, runtime" rev="3.5.0" rev-constraint-default="3.5.0" rev-constraint-dynamic="3.5.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="vertx-lang-scala_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="193715" time="4917" location="D:\Users\resta\.ivy2\cache\io.vertx\vertx-lang-scala_2.12\srcs\vertx-lang-scala_2.12-3.5.0-sources.jar">
+					<artifact name="vertx-lang-scala_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="193715" time="0" location="D:\Users\resta\.ivy2\cache\io.vertx\vertx-lang-scala_2.12\srcs\vertx-lang-scala_2.12-3.5.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/vertx/vertx-lang-scala_2.12/3.5.0/vertx-lang-scala_2.12-3.5.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -209,7 +209,7 @@
 				<metadata-artifact status="no" details="" size="23129" time="0" location="D:\Users\resta\.ivy2\cache\io.vertx\vertx-hazelcast\ivy-3.5.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/vertx/vertx-hazelcast/3.5.0/vertx-hazelcast-3.5.0.pom"/>
 				<caller organisation="default" name="vertx$sources" conf="compile, runtime" rev="3.5.0" rev-constraint-default="3.5.0" rev-constraint-dynamic="3.5.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="vertx-hazelcast" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="26277" time="3946" location="D:\Users\resta\.ivy2\cache\io.vertx\vertx-hazelcast\srcs\vertx-hazelcast-3.5.0-sources.jar">
+					<artifact name="vertx-hazelcast" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="26277" time="0" location="D:\Users\resta\.ivy2\cache\io.vertx\vertx-hazelcast\srcs\vertx-hazelcast-3.5.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/vertx/vertx-hazelcast/3.5.0/vertx-hazelcast-3.5.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -221,7 +221,7 @@
 				<metadata-artifact status="no" details="" size="16829" time="0" location="D:\Users\resta\.ivy2\cache\com.hazelcast\hazelcast\ivy-3.8.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/hazelcast/hazelcast/3.8.2/hazelcast-3.8.2.pom"/>
 				<caller organisation="default" name="vertx$sources" conf="compile, runtime" rev="3.8.2" rev-constraint-default="3.8.2" rev-constraint-dynamic="3.8.2" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="hazelcast" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="5068794" time="9482" location="D:\Users\resta\.ivy2\cache\com.hazelcast\hazelcast\srcs\hazelcast-3.8.2-sources.jar">
+					<artifact name="hazelcast" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="5068794" time="0" location="D:\Users\resta\.ivy2\cache\com.hazelcast\hazelcast\srcs\hazelcast-3.8.2-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/hazelcast/hazelcast/3.8.2/hazelcast-3.8.2-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -234,7 +234,7 @@
 				<metadata-artifact status="no" details="" size="26438" time="0" location="D:\Users\resta\.ivy2\cache\io.vertx\vertx-core\ivy-3.5.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/vertx/vertx-core/3.5.0/vertx-core-3.5.0.pom"/>
 				<caller organisation="default" name="vertx$sources" conf="compile, runtime" rev="3.5.0" rev-constraint-default="3.5.0" rev-constraint-dynamic="3.5.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="vertx-core" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="820910" time="4789" location="D:\Users\resta\.ivy2\cache\io.vertx\vertx-core\srcs\vertx-core-3.5.0-sources.jar">
+					<artifact name="vertx-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="820910" time="0" location="D:\Users\resta\.ivy2\cache\io.vertx\vertx-core\srcs\vertx-core-3.5.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/vertx/vertx-core/3.5.0/vertx-core-3.5.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -246,7 +246,7 @@
 				<metadata-artifact status="no" details="" size="17421" time="0" location="D:\Users\resta\.ivy2\cache\io.netty\netty-resolver-dns\ivy-4.1.15.Final.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/netty/netty-resolver-dns/4.1.15.Final/netty-resolver-dns-4.1.15.Final.pom"/>
 				<caller organisation="default" name="vertx$sources" conf="compile, runtime" rev="4.1.15.Final" rev-constraint-default="4.1.15.Final" rev-constraint-dynamic="4.1.15.Final" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="netty-resolver-dns" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="66139" time="3716" location="D:\Users\resta\.ivy2\cache\io.netty\netty-resolver-dns\srcs\netty-resolver-dns-4.1.15.Final-sources.jar">
+					<artifact name="netty-resolver-dns" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="66139" time="0" location="D:\Users\resta\.ivy2\cache\io.netty\netty-resolver-dns\srcs\netty-resolver-dns-4.1.15.Final-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/netty/netty-resolver-dns/4.1.15.Final/netty-resolver-dns-4.1.15.Final-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -258,7 +258,7 @@
 				<metadata-artifact status="no" details="" size="16871" time="0" location="D:\Users\resta\.ivy2\cache\io.netty\netty-codec-dns\ivy-4.1.15.Final.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/netty/netty-codec-dns/4.1.15.Final/netty-codec-dns-4.1.15.Final.pom"/>
 				<caller organisation="default" name="vertx$sources" conf="compile, runtime" rev="4.1.15.Final" rev-constraint-default="4.1.15.Final" rev-constraint-dynamic="4.1.15.Final" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="netty-codec-dns" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="51698" time="3622" location="D:\Users\resta\.ivy2\cache\io.netty\netty-codec-dns\srcs\netty-codec-dns-4.1.15.Final-sources.jar">
+					<artifact name="netty-codec-dns" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="51698" time="0" location="D:\Users\resta\.ivy2\cache\io.netty\netty-codec-dns\srcs\netty-codec-dns-4.1.15.Final-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/netty/netty-codec-dns/4.1.15.Final/netty-codec-dns-4.1.15.Final-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -679,7 +679,7 @@
 				<metadata-artifact status="no" details="" size="22996" time="0" location="D:\Users\resta\.ivy2\cache\io.vertx\vertx-lang-scala-on-the-fly_2.12\ivy-3.5.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/vertx/vertx-lang-scala-on-the-fly_2.12/3.5.0/vertx-lang-scala-on-the-fly_2.12-3.5.0.pom"/>
 				<caller organisation="default" name="vertx$sources" conf="compile, runtime" rev="3.5.0" rev-constraint-default="3.5.0" rev-constraint-dynamic="3.5.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="vertx-lang-scala-on-the-fly_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="428" time="3903" location="D:\Users\resta\.ivy2\cache\io.vertx\vertx-lang-scala-on-the-fly_2.12\srcs\vertx-lang-scala-on-the-fly_2.12-3.5.0-sources.jar">
+					<artifact name="vertx-lang-scala-on-the-fly_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="428" time="0" location="D:\Users\resta\.ivy2\cache\io.vertx\vertx-lang-scala-on-the-fly_2.12\srcs\vertx-lang-scala-on-the-fly_2.12-3.5.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/vertx/vertx-lang-scala-on-the-fly_2.12/3.5.0/vertx-lang-scala-on-the-fly_2.12-3.5.0-sources.jar"/>
 					</artifact>
 				</artifacts>

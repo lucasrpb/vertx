@@ -1,3 +1,5 @@
+import Dependencies._
+
 name := "vertx"
 
 version := "0.1"
@@ -9,7 +11,7 @@ resolvers ++= Seq(
   Resolver.sonatypeRepo("snapshots")
 )
 
-val Vertx = "3.5.0"
+//val Vertx = "3.5.0"
 
 libraryDependencies ++= Seq(
   "org.scalactic" %% "scalactic" % "3.0.5",
@@ -18,7 +20,7 @@ libraryDependencies ++= Seq(
   "org.apache.commons" % "commons-lang3" % "3.8.1",
   "com.twitter" %% "finagle-http" % "19.5.1",
 
-  "io.vertx" % "vertx-codegen" % Vertx % Provided,
-  "io.vertx" %% "vertx-lang-scala"  % Vertx,
-  "io.vertx" % "vertx-hazelcast" % Vertx
+  Library.vertx_codegen,
+  Library.vertx_lang_scala,
+  Library.vertx_hazelcast
 )
