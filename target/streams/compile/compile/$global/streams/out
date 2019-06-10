@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0mD:\Users\resta\IdeaProjects\vertx\src\main\scala\vertx\Server.scala:33:63: reference to DeploymentOptions is ambiguous;[0m
+[0m[[0m[31merror[0m] [0m[0mit is imported twice in the same scope by[0m
+[0m[[0m[31merror[0m] [0m[0mimport io.vertx.scala.core.DeploymentOptions[0m
+[0m[[0m[31merror[0m] [0m[0mand import io.vertx.core.{AsyncResult, DeploymentOptions, Handler, Vertx, VertxOptions}[0m
+[0m[[0m[31merror[0m] [0m[0m        res.result.deployVerticle("vertx.ClientVerticle", new DeploymentOptions().setInstances(1),[0m
+[0m[[0m[31merror[0m] [0m[0m                                                              ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
