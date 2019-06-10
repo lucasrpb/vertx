@@ -22,7 +22,7 @@ package object vertx {
 
     override def transform(s: Ping): Ping = s
 
-    override def name(): String = "StringCodec"
+    override def name(): String = "PingCodec"
 
     override def systemCodecID(): Byte = 1
   }
