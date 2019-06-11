@@ -1,7 +1,7 @@
 package vertx
 
 import com.hazelcast.config.Config
-import io.vertx.core.{AsyncResult, DeploymentOptions, Handler, Vertx, VertxOptions}
+import io.vertx.core.{AsyncResult, DeploymentOptions, Handler, Vertx, VertxOptions, eventbus}
 import io.vertx.spi.cluster.hazelcast.HazelcastClusterManager
 
 object Client {
@@ -24,24 +24,31 @@ object Client {
     tcp.addMember("127.0.0.1:2551")
     tcp.addMember("127.0.0.1:2552")
 
-    netcfg.setPort(3001)
+   // netcfg.setPort(3001)
 
     //val join = netcfg.getJoin
     //join.getTcpIpConfig.addMember("127.0.0.1").setEnabled(true)
 
     val options = new VertxOptions().setClusterManager(mgr)
+    options.setClustered(false)
 
     Vertx.clusteredVertx(options, res => {
 
       if(res.succeeded()){
 
-        res.result.deployVerticle("vertx.ClientVerticle", new DeploymentOptions().setInstances(1),
-          new Handler[AsyncResult[String]] {
-          override def handle(event: AsyncResult[String]): Unit = {
+        val result = res.result()
+        val bus = result.eventBus()
+        bus.registerDefaultCodec(classOf[Enqueue], EnqueueCodec)
 
-            println(s"client ${event.succeeded()} cause: ${event.cause()}")
+        println("CLIENT STARTED....")
 
-          }
+        val start = System.currentTimeMillis()
+        bus.send("2551::enqueue", Enqueue("1", List("k1", "k2")),
+          (event: AsyncResult[eventbus.Message[Boolean]]) => {
+
+          val elapsed = System.currentTimeMillis() - start
+          println(s"server replied ${event.result().body()} elapsed: ${elapsed}ms")
+
         })
 
       } else {

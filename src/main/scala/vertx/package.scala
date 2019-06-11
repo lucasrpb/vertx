@@ -1,31 +1,41 @@
+import java.nio.charset.Charset
+
 import io.vertx.core.buffer.Buffer
 import io.vertx.core.eventbus.MessageCodec
+import scodec._
+import scodec.bits.{BitVector, ByteVector}
+import scodec.codecs.implicits._
+import scodec.stream.{decode, encode}
+import scodec._
+import scodec.bits._
+import codecs._
+
 
 package object vertx {
 
-  trait ProtocolMessage
+  trait Command
 
-  case class Ping(msg: String) extends ProtocolMessage
-  case class Pong(msg: String) extends ProtocolMessage
+  case class Enqueue(tx: String, keys: List[String])
 
-  object PingMessageCodec extends MessageCodec[Ping, Ping] {
+  object EnqueueCodec extends MessageCodec[Enqueue, Enqueue] {
 
-    override def encodeToWire(buffer: Buffer, s: Ping): Unit = {
-     // println(s"encoding...")
-      buffer.appendString(s.msg)
+    val codec = (utf8 :: list(utf8)).as[Enqueue]
+
+    override def encodeToWire(buffer: Buffer, s: Enqueue): Unit = {
+      val bytes = codec.encode(s).require
+      //buffer.appendByte(bytes)
     }
 
-    override def decodeFromWire(pos: Int, buffer: Buffer): Ping = {
-     // println("decoding...")
-      Ping(buffer.getString(pos, buffer.length()))
+    override def decodeFromWire(pos: Int, buffer: Buffer): Enqueue = {
+     // codec.decodeValue().require
+      null
     }
 
+    override def transform(s: Enqueue): Enqueue = s
 
-    override def transform(s: Ping): Ping = s
+    override def name(): String = "EnqueueCodec"
 
-    override def name(): String = "PingCodec"
-
-    override def systemCodecID(): Byte = 1
+    override def systemCodecID(): Byte = -1
   }
 
 }

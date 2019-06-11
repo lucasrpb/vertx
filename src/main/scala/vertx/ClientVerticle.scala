@@ -5,10 +5,10 @@ import io.vertx.core.eventbus.Message
 
 class ClientVerticle extends AbstractVerticle {
 
-  override def start(): Unit = {
+  /*override def start(): Unit = {
 
     val bus = this.vertx.eventBus()
-    bus.registerDefaultCodec(classOf[Ping], PingMessageCodec)
+    bus.registerDefaultCodec(classOf[Ping], TransactionCodec)
 
     println("CLIENT STARTED....")
 
@@ -21,6 +21,6 @@ class ClientVerticle extends AbstractVerticle {
       this.vertx.close()
     })
 
-  }
+  }*/
 
 }

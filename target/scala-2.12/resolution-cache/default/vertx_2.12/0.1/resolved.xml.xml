@@ -4,7 +4,7 @@
 		module="vertx_2.12"
 		revision="0.1"
 		status="integration"
-		publication="20190610141015"
+		publication="20190611002748"
 	>
 		<description>
 		vertx
@@ -37,6 +37,9 @@
 		<dependency org="com.google.guava" name="guava" rev="27.1-jre" conf="compile->default(compile)"/>
 		<dependency org="org.apache.commons" name="commons-lang3" rev="3.8.1" conf="compile->default(compile)"/>
 		<dependency org="com.twitter" name="finagle-http_2.12" rev="19.5.1" conf="compile->default(compile)"/>
+		<dependency org="org.scodec" name="scodec-bits_2.12" rev="1.1.11" conf="compile->default(compile)"/>
+		<dependency org="org.scodec" name="scodec-protocols_2.12" rev="1.2.1" conf="compile->default(compile)"/>
+		<dependency org="org.scala-lang.modules" name="scala-collection-compat_2.12" rev="2.0.0" conf="compile->default(compile)"/>
 		<dependency org="io.vertx" name="vertx-codegen" rev="3.5.0" conf="provided->default(compile)"/>
 		<dependency org="io.vertx" name="vertx-lang-scala_2.12" rev="3.5.0" conf="compile->default(compile)"/>
 		<dependency org="io.vertx" name="vertx-hazelcast" rev="3.5.0" conf="compile->default(compile)"/>

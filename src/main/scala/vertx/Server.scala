@@ -32,34 +32,21 @@ object Server {
     tcp.addMember("127.0.0.1:2552")
 
     val options = new VertxOptions().setClusterManager(mgr)
-    
-   // options.setClusterHost("localhost")
-   // options.setClusterPort(3000)
-
-
 
     Vertx.clusteredVertx(options, res => {
 
       if(res.succeeded()){
 
-        res.result.deployVerticle("vertx.ServerVerticle", new DeploymentOptions()
-          .setInstances(1).setHa(true),
-          new Handler[AsyncResult[String]] {
-            override def handle(event: AsyncResult[String]): Unit = {
+        val deployment = new DeploymentOptions()
+          .setInstances(1).setHa(true)
 
-              println(s"result: ${event.result()}")
+        res.result().deployVerticle(new Transactor(port), deployment, new Handler[AsyncResult[String]] {
+          override def handle(event: AsyncResult[String]): Unit = {
 
-              val cm = options.getClusterManager()
+            println(s"transactor ${event.result} running...")
 
-              var nodes = Seq.empty[String]
-              cm.getNodes.forEach((t: String) => {
-                nodes = nodes :+ t
-              })
-
-              println(s"server ${event.succeeded()} cause: ${event.cause()} nodes ${nodes}")
-
-            }
-          })
+          }
+        })
 
       } else {
         println("failure!")

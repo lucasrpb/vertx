@@ -20,6 +20,11 @@ libraryDependencies ++= Seq(
   "org.apache.commons" % "commons-lang3" % "3.8.1",
   "com.twitter" %% "finagle-http" % "19.5.1",
 
+  "org.scodec" %% "scodec-bits" % "1.1.11",
+  "org.scodec" %% "scodec-protocols" % "1.2.1",
+
+  "org.scala-lang.modules" %% "scala-collection-compat" % "2.0.0",
+
   Library.vertx_codegen,
   Library.vertx_lang_scala,
   Library.vertx_hazelcast

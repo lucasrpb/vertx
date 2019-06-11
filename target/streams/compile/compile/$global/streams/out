@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/Volumes/Users/lucasrpb/IdeaProjects/vertx/src/main/scala/vertx/ServerVerticle.scala:10:43: not found: value PingMessageCodec[0m
-[0m[[0m[31merror[0m] [0m[0m  bus.registerDefaultCodec(classOf[Ping], PingMessageCodec)[0m
-[0m[[0m[31merror[0m] [0m[0m                                          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Volumes/Users/lucasrpb/IdeaProjects/vertx/src/main/scala/vertx/package.scala:22:40: Could not prove that String :: List[String] :: shapeless.HNil can be converted to/from vertx.package.Enqueue.[0m
+[0m[[0m[31merror[0m] [0m[0m    val codec = (utf8 :: list(utf8)).as[Enqueue][0m
+[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m
