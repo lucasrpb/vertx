@@ -1,0 +1,14 @@
+package protos;
+
+import "scalapb/scalapb.proto";
+
+option (scalapb.options) = {
+  scope: FILE
+  package_name: "vertx.protocol"
+  flat_package: true
+};
+
+message Enqueue {
+    required string id = 1;
+    repeated string keys = 2;
+}

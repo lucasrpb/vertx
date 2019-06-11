@@ -25,7 +25,13 @@ libraryDependencies ++= Seq(
 
   "org.scala-lang.modules" %% "scala-collection-compat" % "2.0.0",
 
+  "com.thesamet.scalapb" %% "scalapb-runtime" % scalapb.compiler.Version.scalapbVersion % "protobuf",
+
   Library.vertx_codegen,
   Library.vertx_lang_scala,
   Library.vertx_hazelcast
+)
+
+PB.targets in Compile := Seq(
+  scalapb.gen() -> (sourceManaged in Compile).value
 )

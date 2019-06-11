@@ -6,8 +6,8 @@
 		module="vertx$sources"
 		revision="0.1"
 		conf="optional"
-		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20190611001223"/>
+		confs="compile, runtime, test, provided, optional, protobuf, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
+		date="20190611112702"/>
 	<dependencies>
 	</dependencies>
 </ivy-report>

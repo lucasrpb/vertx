@@ -3,6 +3,7 @@ package vertx
 import io.vertx.core.eventbus.Message
 import io.vertx.core.{AbstractVerticle, Handler}
 import io.vertx.core.eventbus
+import vertx.protocol._
 
 class Transactor(id: String) extends AbstractVerticle {
 

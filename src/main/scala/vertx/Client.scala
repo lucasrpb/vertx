@@ -3,6 +3,7 @@ package vertx
 import com.hazelcast.config.Config
 import io.vertx.core.{AsyncResult, DeploymentOptions, Handler, Vertx, VertxOptions, eventbus}
 import io.vertx.spi.cluster.hazelcast.HazelcastClusterManager
+import vertx.protocol._
 
 object Client {
 
@@ -43,7 +44,7 @@ object Client {
         println("CLIENT STARTED....")
 
         val start = System.currentTimeMillis()
-        bus.send("2551::enqueue", Enqueue("1", List("k1", "k2")),
+        bus.send("2551::enqueue", Enqueue("1", Seq("k1", "k2")),
           (event: AsyncResult[eventbus.Message[Boolean]]) => {
 
           val elapsed = System.currentTimeMillis() - start
