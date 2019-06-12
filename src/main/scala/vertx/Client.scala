@@ -12,6 +12,7 @@ import vertx.protocol._
 import scala.concurrent.{Await, Future, Promise, TimeoutException}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
+import scala.util.{Failure, Success}
 
 object Client {
 
@@ -65,8 +66,10 @@ object Client {
     val options = new VertxOptions().setClusterManager(mgr)
     options.setClustered(false)
 
-    options.setBlockedThreadCheckInterval(1000 * 60 * 60)
-    options.setMaxEventLoopExecuteTime((300 milliseconds).toNanos)
+    options.setBlockedThreadCheckInterval(10000)
+    options.setMaxEventLoopExecuteTime((10000 milliseconds) toNanos)
+
+    val p = Promise[EventBus]()
 
     Vertx.clusteredVertx(options, res => {
 
@@ -78,6 +81,27 @@ object Client {
         bus.registerDefaultCodec(classOf[Release], ReleaseCodec)
 
         println("CLIENT STARTED....")
+
+        /*send("2551::enqueue", Enqueue("1", Seq("k1", "k2"))).flatMap { _ =>
+            send("2551::release", Release("1"))
+        }.map { r =>
+          println(s"done ${r}")
+        }*/
+
+        p.success(result.eventBus())
+
+      } else {
+        p.failure(res.cause())
+        println("failure!")
+      }
+
+    })
+
+    p.future.onComplete {
+
+      case Success(b) =>
+
+        implicit val bus = b
 
         var accounts = Seq.empty[Account]
 
@@ -127,7 +151,7 @@ object Client {
 
           val start = System.currentTimeMillis()
 
-          Future.sequence(locks).map { acks =>
+          Future.firstCompletedOf(Seq(Future.sequence(locks), ptmt.future)).map { acks =>
             if(!acks.contains(false)) {
               true
             } else {
@@ -140,7 +164,7 @@ object Client {
             val elapsed = System.currentTimeMillis() - start
 
             requests.foreach { case (p, _) =>
-             send(s"${transactors(p)}::release", Release(id))
+              send(s"${transactors(p)}::release", Release(id))
             }
 
             println(s"tx ${id} done -> ${ok} elapsed: ${elapsed}ms")
@@ -151,7 +175,7 @@ object Client {
 
         var tasks = Seq.empty[Future[Boolean]]
 
-        for(i<-0 until 100){
+        for(i<-0 until 1000){
           val i0 = rand.nextInt(0, n)
           val i1 = rand.nextInt(0, n)
 
@@ -161,7 +185,7 @@ object Client {
         }
 
         val start = System.currentTimeMillis()
-        val results = Await.result(Future.sequence(tasks), 10 seconds)
+        val results = Await.result(Future.sequence(tasks), 5 seconds)
         val elapsed = System.currentTimeMillis() - start
 
         val size = results.length
@@ -172,17 +196,15 @@ object Client {
 
         println(s"n: ${size} hits: ${hits} rate: ${rate}% rps: ${rps}\n")
 
-        /*send("2551::enqueue", Enqueue("1", Seq("k1", "k2"))).flatMap { _ =>
-            send("2551::release", Release("1"))
-        }.map { r =>
-          println(s"done ${r}")
-        }*/
+        //Vertx.currentContext().owner().close()
 
-      } else {
-        println("failure!")
-      }
+      case Failure(exception) =>
 
-    })
+        println(exception)
+
+        //Vertx.currentContext().owner().close()
+
+    }
 
   }
 
