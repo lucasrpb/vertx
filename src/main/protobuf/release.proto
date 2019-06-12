@@ -8,7 +8,6 @@ option (scalapb.options) = {
   flat_package: true
 };
 
-message Enqueue {
+message Release {
     string id = 1;
-    repeated string keys = 2;
 }

@@ -11,8 +11,6 @@ resolvers ++= Seq(
   Resolver.sonatypeRepo("snapshots")
 )
 
-//val Vertx = "3.5.0"
-
 libraryDependencies ++= Seq(
   "org.scalactic" %% "scalactic" % "3.0.5",
   "org.scalatest" %% "scalatest" % "3.0.5" % "test",

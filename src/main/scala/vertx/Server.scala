@@ -32,6 +32,8 @@ object Server {
     tcp.addMember("127.0.0.1:2552")
 
     val options = new VertxOptions().setClusterManager(mgr)
+    options.setBlockedThreadCheckInterval(1000 * 60 * 60)
+    options.setMaxEventLoopExecuteTime(1000 * 1000 * 1000)
 
     Vertx.clusteredVertx(options, res => {
 
@@ -40,7 +42,8 @@ object Server {
         val deployment = new DeploymentOptions()
           .setInstances(1).setHa(true)
 
-        res.result().deployVerticle(new Transactor(port), deployment, new Handler[AsyncResult[String]] {
+        res.result().deployVerticle(new Transactor(port), deployment,
+          new Handler[AsyncResult[String]] {
           override def handle(event: AsyncResult[String]): Unit = {
 
             println(s"transactor ${event.result} running...")
